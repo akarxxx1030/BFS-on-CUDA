@@ -21,9 +21,9 @@ __global__ void sample(int *d_array, double *d_sum, int N) {
             s_array[local_tid]+= s_array[local_tid+stride];}
         __syncthreads();}
 
-    if(local_tid == 0){
+  /*  if(local_tid == 0){
     atomicAdd(&d_tb_sum, s_array[0]);}
-    __syncthreads();
+    __syncthreads(); */
     
     if(local_tid == 0){
         atomicAdd(d_sum, d_tb_sum);}
